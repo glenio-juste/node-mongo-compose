@@ -10,24 +10,24 @@ mongoose.Promise = global.Promise
 mongoose.connect('mongodb://db/mydb')
 
 // Teste
-server.get('/', (req, res, next) => res.send('Backend'))
+//server.get('/', (req, res, next) => res.send('Backend'))
 
 // Middlewares
-/* server.use(bodyParser.urlencoded({extended:true}))
+server.use(bodyParser.urlencoded({extended:true}))
 server.use(bodyParser.json())
-server.use(cors()) */
+server.use(cors())
 
 // ODM
-/* const Client = restful.model('Client', {
+const Client = restful.model('Client', {
     name: { type: String, required: true }
-}) */
+})
 
 // Rest API
-/* Client.methods(['get', 'post', 'put', 'delete'])
-Client.updateOptions({new: true, runValidators: true}) */
+Client.methods(['get', 'post', 'put', 'delete'])
+Client.updateOptions({new: true, runValidators: true})
 
 // Routes
-/* Client.register(server, '/clients') */
+Client.register(server, '/clients')
 
 // Start Server
 server.listen(3000)
